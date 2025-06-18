@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ingredients Section</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f6f8fa, #e3f2fd);
+      padding: 2rem;
+      color: #333;
+    }
+
+    .ingredients-container {
+      max-width: 1100px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .ingredients-container h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .ingredients-container h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #4fc3f7;
+      margin: 10px auto 0;
+      border-radius: 10px;
+    }
+
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .ingredient-card {
+      background: linear-gradient(to top left, #ffffff, #f1f8ff);
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 12px rgba(79, 195, 247, 0.1);
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(79, 195, 247, 0.2);
+    }
+
+    .ingredient-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #0277bd;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ingredient-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ingredient-card ul li {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 500px) {
+      .ingredients-container {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ingredients-container">
+    <h2>🍽 Ingredient Categories</h2>
+    <div class="ingredient-grid">
+      <div class="ingredient-card">
+        <h3>🥦 Vegetables</h3>
+        <ul>
+          <li>Tomato</li>
+          <li>Onion</li>
+          <li>Spinach</li>
+        </ul>
+      </div>
+      <div class="ingredient-card">
+        <h3>🍎 Fruits</h3>
+        <ul>
+          <li>Banana</li>
+          <li>Apple</li>
+          <li>Mango</li>
+        </ul>
+      </div>
+      <div class="ingredient-card">
+        <h3>🌾 Grains & Cereals</h3>
+        <ul>
+          <li>Rice</li>
+          <li>Wheat</li>
+          <li>Oats</li>
+        </ul>
+      </div>
+      <div class="ingredient-card">
+        <h3>🍗 Proteins</h3>
+        <ul>
+          <li>Chicken</li>
+          <li>Eggs</li>
+          <li>Tofu</li>
+        </ul>
+      </div>
+      <div class="ingredient-card">
+        <h3>🌿 Spices & Herbs</h3>
+        <ul>
+          <li>Turmeric</li>
+          <li>Basil</li>
+          <li>Chili Powder</li>
+        </ul>
+      </div>
+      <div class="ingredient-card">
+        <h3>🧀 Dairy & Eggs</h3>
+        <ul>
+          <li>Milk</li>
+          <li>Cheese</li>
+          <li>Yogurt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

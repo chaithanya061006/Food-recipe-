@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mushroom Masala Recipe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .recipe-container {
+      background: #fff;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    h2 {
+      text-align: center;
+      color: #34495e;
+      margin-top: 20px;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      color: #555;
+    }
+
+    #stepBox {
+      min-height: 100px;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ecf0f1;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #2c3e50;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #bdc3c7;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="recipe-container">
+  <h1>Mushroom Masala</h1>
+
+  <h2>Ingredients</h2>
+  <hr>
+  <ul>
+    <li>250g mushrooms (sliced)</li>
+    <li>1 onion (finely chopped)</li>
+    <li>2 tomatoes (pureed)</li>
+    <li>1 tsp ginger-garlic paste</li>
+    <li>2 tbsp oil</li>
+    <li>1 tsp cumin seeds</li>
+    <li>1 tsp coriander powder</li>
+    <li>1/2 tsp turmeric powder</li>
+    <li>1 tsp garam masala</li>
+    <li>Salt to taste</li>
+    <li>Fresh coriander for garnish</li>
+  </ul>
+
+  <div id="stepBox">Click "Next" to start the recipe steps.</div>
+
+  <div class="buttons">
+    <button id="prevBtn" onclick="previousStep()" disabled>⬅ Back</button>
+    <button id="nextBtn" onclick="nextStep()">Next ➡</button>
+  </div>
+</div>
+
+<script>
+  const steps = [
+    "Step 1: Heat oil in a pan. Add cumin seeds and let them splutter.",
+    "Step 2: Add chopped onions and sauté until golden brown.",
+    "Step 3: Add ginger-garlic paste and cook for 2 minutes.",
+    "Step 4: Add tomato puree, turmeric, coriander powder, and salt. Cook until oil separates.",
+    "Step 5: Add sliced mushrooms, cook until soft and water evaporates.",
+    "Step 6: Add garam masala and mix well. Cook for another 3-4 minutes.",
+    "Step 7: Garnish with fresh coriander and serve hot with roti or rice."
+  ];
+
+  let current = -1; // start before step 0
+
+  const stepBox = document.getElementById('stepBox');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function updateStep() {
+    if (current >= 0 && current < steps.length) {
+      stepBox.textContent = steps[current];
+    }
+
+    prevBtn.disabled = current <= 0;
+    nextBtn.disabled = current >= steps.length - 1;
+  }
+
+  function nextStep() {
+    if (current < steps.length - 1) {
+      current++;
+      updateStep();
+    }
+  }
+
+  function previousStep() {
+    if (current > 0) {
+      current--;
+      updateStep();
+    }
+  }
+
+  // Don't call updateStep() on load — stepBox will show intro message until "Next" is clicked
+</script>
+
+</body>
+</html>

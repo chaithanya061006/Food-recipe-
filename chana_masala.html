@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Chana Masala Recipe</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f7f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .recipe-container {
+    background: #fff;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 25px 30px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  h1 {
+    color: #7d3c98;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  h2 {
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-bottom: 2px solid #7d3c98;
+    padding-bottom: 5px;
+  }
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 25px;
+    color: #444;
+  }
+  #stepBox {
+    min-height: 120px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #581845;
+    border: 2px solid #7d3c98;
+    border-radius: 8px;
+    padding: 20px;
+    background: #f3e6f5;
+  }
+  button {
+    background-color: #7d3c98;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:disabled {
+    background-color: #c4a3cc;
+    cursor: not-allowed;
+  }
+  button:hover:not(:disabled) {
+    background-color: #591a73;
+  }
+</style>
+</head>
+<body>
+
+<div class="recipe-container">
+  <h1>Chana Masala Recipe</h1>
+
+  <h2>Ingredients</h2>
+  <ul>
+    <li>1 cup dried chickpeas (soaked overnight)</li>
+    <li>2 tbsp oil</li>
+    <li>1 large onion (chopped)</li>
+    <li>2 tomatoes (pureed)</li>
+    <li>1 tsp ginger-garlic paste</li>
+    <li>1 tsp cumin seeds</li>
+    <li>1 tsp coriander powder</li>
+    <li>1 tsp garam masala</li>
+    <li>1/2 tsp turmeric powder</li>
+    <li>1 tsp red chili powder</li>
+    <li>Salt to taste</li>
+    <li>Fresh coriander for garnish</li>
+  </ul>
+
+  <div id="stepBox">Click "Next" to start cooking!</div>
+
+  <div>
+    <button id="prevBtn" onclick="previousStep()" disabled>⬅ Back</button>
+    <button id="nextBtn" onclick="nextStep()">Next ➡</button>
+  </div>
+</div>
+
+<script>
+  const steps = [
+    "Step 1: Pressure cook soaked chickpeas with salt until soft. Set aside.",
+    "Step 2: Heat oil in a pan, add cumin seeds and let them splutter.",
+    "Step 3: Add onions and sauté until golden brown.",
+    "Step 4: Add ginger-garlic paste and cook for 1-2 minutes.",
+    "Step 5: Add tomato puree, turmeric, chili, coriander powder. Cook until oil separates.",
+    "Step 6: Add cooked chickpeas and some water. Simmer for 15 minutes.",
+    "Step 7: Stir in garam masala and garnish with coriander. Serve hot."
+  ];
+
+  let current = -1; // start before step 0
+
+  const stepBox = document.getElementById('stepBox');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function updateStep() {
+    if (current >= 0 && current < steps.length) {
+      stepBox.textContent = steps[current];
+    }
+
+    prevBtn.disabled = current <= 0;
+    nextBtn.disabled = current >= steps.length - 1;
+  }
+
+  function nextStep() {
+    if (current < steps.length - 1) {
+      current++;
+      updateStep();
+    }
+  }
+
+  function previousStep() {
+    if (current > 0) {
+      current--;
+      updateStep();
+    }
+  }
+
+</script>
+
+</body>
+</html>

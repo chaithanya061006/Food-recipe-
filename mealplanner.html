@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Suggestions - Meal Planner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f6f8fc;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    .ingredient {
+      display: inline-block;
+      background: #e0f7e9;
+      color: #2f855a;
+      padding: 0.4rem 1rem;
+      margin: 0.3rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #43a047;
+    }
+
+    .suggestions {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
+      border-radius: 12px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .suggestions ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Selected Ingredients:</h2>
+    <div class="ingredient-list">
+      <span class="ingredient">Tomato</span>
+      <span class="ingredient">Onion</span>
+      <span class="ingredient">Cheese</span>
+    </div>
+
+    <button onclick="toggleSuggestions()">Smart Suggestions</button>
+
+    <div class="suggestions" id="suggestionsBox">
+      <h3>Suggested Recipes:</h3>
+      <ul>
+        <li>Tomato & Cheese Omelette</li>
+        <li>Cheesy Onion Pasta</li>
+        <li>Grilled Cheese & Tomato Sandwich</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleSuggestions() {
+      const box = document.getElementById("suggestionsBox");
+      if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "block";
+      } else {
+        box.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

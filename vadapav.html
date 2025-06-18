@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vada Pav Recipe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .step-box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #fff;
+      min-height: 60px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #e91e63;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:disabled {
+      background-color: #f8bbd0;
+      cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌭 Vada Pav Recipe</h1>
+
+  <div class="box">
+    <h2>Ingredients</h2>
+    <ul>
+      <li>4 pav buns</li>
+      <li>4 boiled potatoes</li>
+      <li>1 tsp mustard seeds</li>
+      <li>1 tsp turmeric</li>
+      <li>2 green chilies, chopped</li>
+      <li>Besan (gram flour)</li>
+      <li>Salt, oil, coriander</li>
+      <li>Chutney (tamarind/garlic)</li>
+    </ul>
+  </div>
+
+  <div class="step-box" id="stepBox">Click below to begin!</div>
+
+  <div class="buttons">
+    <button id="prevBtn" onclick="prevStep()" disabled>⬅ Back</button>
+    <button id="nextBtn" onclick="nextStep()">Next ➡</button>
+  </div>
+
+  <script>
+    const steps = [
+      "Step 1: Mash potatoes and mix with mustard seeds, turmeric, salt, and green chilies.",
+      "Step 2: Shape into small balls.",
+      "Step 3: Prepare a besan batter and dip potato balls in it.",
+      "Step 4: Deep fry until golden brown.",
+      "Step 5: Slice pav and apply chutneys.",
+      "Step 6: Place the vada inside and press.",
+      "Step 7: Serve hot with green chili!"
+    ];
+
+    let current = -1;
+    const stepBox = document.getElementById("stepBox");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function updateStep() {
+      stepBox.textContent = current === -1 ? "Click below to begin!" : steps[current];
+      prevBtn.disabled = current <= 0;
+      nextBtn.disabled = current >= steps.length - 1;
+    }
+
+    function nextStep() {
+      if (current < steps.length - 1) {
+        current++;
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      if (current > 0) {
+        current--;
+        updateStep();
+      }
+    }
+
+    updateStep();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var today = new Date();
+        var d = today.getDate();
+        var m = today.getMonth();
+        var y = today.getFullYear();
+        var m1 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var m2 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var n = 0;
+        if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
+            n = m1[m] - d;
+            for (var i = m + 1; i < m1.length; i++)
+                n += m1[i];
+        }
+        else {
+            n = m2[m] - d;
+            for (var j = m + 1; j < m2.length; j++)
+                n += m2[j];
+        }
+        alert("Remaining days for the next year: " + n);
+    </script>
+</body>
+</html>

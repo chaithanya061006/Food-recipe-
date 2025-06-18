@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Drink List - Add Water</title>
+  <style>
+    .drink {
+      font-family: 'Courier New', monospace;
+      color: green;
+      font-size: 18px;
+      list-style-type: square;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Select Your Beverage:</h3>
+  <ul>
+    <li class="drink">Coffee</li>
+    <li class="drink">Tea</li>
+    <li class="drink">Milk</li>
+     
+  </ul>
+
+  <button onclick="addWater()">Click to Add Water</button>
+
+  <script>
+    function addWater() {
+      const drinks = document.getElementsByClassName('drink');
+      for (let i = 0; i < drinks.length; i++) {
+        if (!drinks[i].textContent.includes('water')) {
+          drinks[i].textContent += ' + water';
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

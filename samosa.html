@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Samosa Recipe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .step-box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #fff;
+      min-height: 60px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #e91e63;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:disabled {
+      background-color: #f8bbd0;
+      cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥟 Samosa Recipe</h1>
+
+  <div class="box">
+    <h2>Ingredients</h2>
+    <ul>
+      <li>2 cups all-purpose flour</li>
+      <li>4 boiled potatoes, mashed</li>
+      <li>1/2 cup peas</li>
+      <li>1 tsp cumin seeds</li>
+      <li>1 tsp garam masala</li>
+      <li>1 tsp chili powder</li>
+      <li>Salt to taste</li>
+      <li>Oil for frying and dough</li>
+      <li>Water for dough</li>
+      <li>Fresh coriander, chopped</li>
+    </ul>
+  </div>
+
+  <div class="step-box" id="stepBox">Click below to begin!</div>
+
+  <div class="buttons">
+    <button id="prevBtn" onclick="prevStep()" disabled>⬅ Back</button>
+    <button id="nextBtn" onclick="nextStep()">Next ➡</button>
+  </div>
+
+  <script>
+    const steps = [
+      "Step 1: Mix flour, salt, and 2 tbsp oil. Add water gradually to knead stiff dough. Let rest 20 mins.",
+      "Step 2: Heat oil, add cumin seeds. Add peas and sauté until cooked.",
+      "Step 3: Add mashed potatoes, garam masala, chili powder, salt, and coriander. Mix well and cook 5 mins.",
+      "Step 4: Divide dough into small balls. Roll each into oval shapes and cut in half.",
+      "Step 5: Form cones with half circles, fill with potato mixture, and seal edges with water.",
+      "Step 6: Heat oil for deep frying and fry samosas until golden and crisp.",
+      "Step 7: Drain on paper towels and serve hot with chutney."
+    ];
+
+    let current = -1;
+    const stepBox = document.getElementById("stepBox");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function updateStep() {
+      stepBox.textContent = current === -1 ? "Click below to begin!" : steps[current];
+      prevBtn.disabled = current <= 0;
+      nextBtn.disabled = current >= steps.length - 1;
+    }
+
+    function nextStep() {
+      if (current < steps.length - 1) {
+        current++;
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      if (current > 0) {
+        current--;
+        updateStep();
+      }
+    }
+
+    updateStep();
+  </script>
+
+</body>
+</html>

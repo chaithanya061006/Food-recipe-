@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff8c42;
+      padding: 1rem 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .recipes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .recipe-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.02);
+    }
+
+    .recipe-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .recipe-details {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .recipe-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .recipe-time {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .recipe-description {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    .view-btn {
+      background-color: #ff8c42;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s;
+    }
+
+    .view-btn:hover {
+      background-color: #e77730;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Delicious Recipes</h1>
+  </header>
+
+  <section class="recipes-container">
+
+    <div class="recipe-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfRy5kXSmQK_TE-cLHeU8PVdt0Ywtw-xxW8A&s" alt="Pasta" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Creamy Garlic Pasta</div>
+          <div class="recipe-time">⏱ 25 mins</div>
+          <div class="recipe-description">A rich and creamy garlic pasta that's quick and comforting.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT66LMnp7oRJ1bkEqZxiypKipajZmonCbm8ow&s" alt="Pasta" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Fresh Summer Salad</div>
+          <div class="recipe-time">⏱ 15 mins</div>
+          <div class="recipe-description">A colorful and refreshing salad perfect for warm days.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILfeScT21JD5BTcFwzRtwTq7fKyg-MOPSfg&s" alt="chicken" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Spicy Grilled Chicken</div>
+          <div class="recipe-time">⏱ 40 mins</div>
+          <div class="recipe-description">Juicy chicken with a spicy rub, grilled to perfection.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREOdT3Rz07n7jJ5sQX2M00VEomxQWwYXAQNA&s" alt="Burger" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Classic Beef Burger</div>
+          <div class="recipe-time">⏱ 30 mins</div>
+          <div class="recipe-description">Juicy beef patty with lettuce, tomato, and melty cheese.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ_e9TzXPWKrQ105hbT0ScUx0MnavSD1DMdQ&s" alt="Soup" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Hearty Veggie Soup</div>
+          <div class="recipe-time">⏱ 35 mins</div>
+          <div class="recipe-description">A warm bowl of goodness packed with fresh vegetables.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://daddysbakery.in/wp-content/uploads/2019/01/Choco-Lava-Cake.jpg" alt="desset" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Chocolate Lava Cake</div>
+          <div class="recipe-time">⏱ 20 mins</div>
+          <div class="recipe-description">Decadent dessert with a gooey molten chocolate center.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://www.cobsbread.com/wp-content/uploads/2022/09/Pepperoni-pizza-850x630-1-585x400-1.jpg" alt="Pizza" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Cheesy Margherita Pizza</div>
+          <div class="recipe-time">⏱ 45 mins</div>
+          <div class="recipe-description">Classic Italian pizza with fresh basil and gooey mozzarella.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://abeautifulmess.com/wp-content/uploads/2023/04/chocolate-smoothie-recipe.--scaled.jpg" alt="Smoothie" class="recipe-image" />
+      <div class="recipe-details">
+        <div>
+          <div class="recipe-title">Tropical Fruit Smoothie</div>
+          <div class="recipe-time">⏱ 10 mins</div>
+          <div class="recipe-description">Refreshing blend of mango, pineapple, and banana.</div>
+        </div>
+        <button class="view-btn">View Recipe</button>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>

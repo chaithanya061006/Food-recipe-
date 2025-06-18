@@ -1,0 +1,318 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Extraordinary Recipe & Meal Planner</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #f8f8f8, #e6f7ff);
+    }
+
+    header {
+      background-image: url('https://cdn.apartmenttherapy.info/image/upload/v1558442543/k/archive/39b5d42d47bdad24ee05d688cfa91a91076e0947.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      position: relative;
+    }
+
+    .overlay {
+      background: rgba(255,255,255,0.9);
+      padding: 1.5em;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .overlay h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .quick-links a {
+      margin: 0.5em;
+      text-decoration: none;
+      background: #4CAF50;
+      padding: 0.6em 1.2em;
+      border-radius: 25px;
+      color: white;
+      transition: background 0.3s;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .quick-links a:hover {
+      background: #388e3c;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1em;
+      gap: 1em;
+    }
+
+    .sidebar {
+      flex: 1 1 250px;
+      background: #fff;
+      padding: 1em;
+      box-shadow: 0 2px 10px rgba(201, 27, 27, 0.1);
+      border-radius: 10px;
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+    }
+
+    .datetime-box {
+      margin: 1em 0;
+      padding: 0.5em;
+      background: #f0f0f0;
+      border-left: 4px solid #4CAF50;
+      font-size: 0.95em;
+    }
+
+    .recipes {
+      flex: 3 1 600px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      padding-left: 1em;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      width: calc(33.333% - 1em);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      max-width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 0.5em 1em 0.2em;
+      color: #444;
+    }
+
+    .card .info {
+      font-size: 0.9em;
+      color: gray;
+      margin: 0 1em 1em;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1em;
+      background: #4CAF50;
+      color: white;
+      margin-top: 2em;
+      position: relative;
+    }
+
+    .abc {
+      padding: 0.5em;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 10px;
+      padding: 2em;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 999;
+      display: none;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+    }
+      .footer {
+  text-align: center;
+  padding: 1em;
+  background: #4CAF50;
+  color: white;
+  margin-top: 2em;
+  position: relative;
+}
+      .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .card {
+        width: calc(100% - 1em);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .recipes {
+        padding-left: 0;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      .overlay h1 {
+        font-size: 2em;
+      }
+
+      .quick-links a {
+        display: block;
+        margin: 0.5em auto;
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  <div class="overlay">
+    <h1>Extraordinary Recipe & Meal Planner</h1>
+    <div class="quick-links">
+      <a href=" http://127.0.0.1:5500/eoc/html/html/recipe.html">Recipes</a>
+      <a href="http://127.0.0.1:5500/eoc/html/html/ingredients.html">ingredients</a>
+      <a href="http://127.0.0.1:5500/eoc/html/html/mealplanner.html">meal planner</a>
+      
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Recipe Handbook</h3>
+
+      <div class="datetime-box">
+        <strong>Date & Time:</strong><br>
+        <span id="datetime">Loading...</span>
+      </div>
+
+      <ul>
+        <li class="abc"><strong>Categories</strong>
+          <ul>
+            <li class="abc"><a href="http://127.0.0.1:5500/eoc/html/html/breakfast.html">Breakfast</a></li>
+            <li class="abc"><a href="http://127.0.0.1:5500/eoc/html/html/lunch.html">Lunch</a></li>
+            <li class="abc"><a href="http://127.0.0.1:5500/eoc/html/html/snacks.html">Evening Snack</a></li>
+            <li class="abc"><a href="http://127.0.0.1:5500/eoc/html/html/dinner.html">Dinner</a></li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+    </div>
+
+    <div class="recipes">
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmR7ltcXfDUjQl0w1ZF8y6TgQptFryLqG9Iw&s" alt="Lasagna">
+    <h3>Lasagna</h3>
+    <div class="info">65 mins | ★★★★★</div>
+  </div>
+
+  <div class="card">
+    <img src="https://www.cookwithmanali.com/wp-content/uploads/2020/05/Masala-Dosa.jpg" alt="Dosa">
+    <h3>Dosa</h3>
+    <div class="info">20 mins | ★★★★☆</div>
+  </div>
+
+  <div class="card">
+    <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/12/chicken-biryani-recipe.jpg" alt="Chicken Biryani">
+    <h3>Chicken Biryani</h3>
+    <div class="info">90 mins | ★★★★★</div>
+  </div>
+
+  <div class="card">
+    <img src="https://img.taste.com.au/nGjAovK2/taste/2016/11/layered-chocolate-mousse-cakes-101268-1.jpeg" alt="Chocolate Mousse">
+    <h3>Chocolate Mousse</h3>
+    <div class="info">30 mins | ★★★★☆</div>
+  </div>
+
+  <div class="card">
+    <img src="https://myfoodstory.com/wp-content/uploads/2021/07/restaurant-style-paneer-butter-masala-2-500x500.jpg" alt="Paneer Butter Masala">
+    <h3>Paneer Butter Masala</h3>
+    <div class="info">45 mins | ★★★★☆</div>
+  </div>
+
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeB6j8ay6hkDNwU1nEQCY2r-P9vEmxC8MgJg&s" alt="Fruit Salad">
+    <h3>Fruit Salad</h3>
+    <div class="info">15 mins | ★★★★☆</div>
+  </div>
+</div>
+  <p style="color: white;">Enjoy cooking your way! 🍽</p>
+
+ 
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="modal">
+    <h2 id="modalTitle"></h2>
+    <p id="modalContent"></p>
+    <button onclick="closeModal()" style="margin-top: 1em; padding: 0.5em 1em; background: #4CAF50; color: white; border: none; border-radius: 5px;">Close</button>
+  </div>
+  
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const time = now.toLocaleTimeString();
+      document.getElementById('datetime').innerHTML =
+        now.toLocaleDateString(undefined, options) + '<br>' + time;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime(); 
+
+    function showModal(type) {
+      const modal = document.getElementById("modal");
+      const overlay = document.getElementById("modalOverlay");
+      const title = document.getElementById("modalTitle");
+      const content = document.getElementById("modalContent");
+
+      if (type === 'recipes') {
+        title.textContent = "Our Favorite Recipes";
+        content.textContent = "Explore a variety of dishes including breakfast, lunch, snacks, and dinner with easy-to-follow steps!";
+      } else if (type === 'ingredients') {
+        title.textContent = "Fresh Ingredients";
+        content.textContent = "Get a list of fresh and healthy ingredients curated for each meal type.";
+      } else if (type === 'planner') {
+        title.textContent = "Smart Meal Planner";
+        content.textContent = "Plan your meals for the week with our intelligent planner for a balanced diet.";
+      }
+
+      modal.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = 'none';
+      document.getElementById("modalOverlay").style.display = 'none';
+    }
+  </script>
+    
+</body>
+</html>

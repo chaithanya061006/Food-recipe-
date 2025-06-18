@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>French Fries Recipe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+
+    .step-box {
+      border: 2px dashed #e91e63;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #fff;
+      min-height: 60px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #e91e63;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:disabled {
+      background-color: #f8bbd0;
+      cursor: not-allowed;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍟 French Fries Recipe</h1>
+
+  <div class="box">
+    <h2>Ingredients</h2>
+    <ul>
+      <li>4 large potatoes</li>
+      <li>Oil for deep frying</li>
+      <li>Salt to taste</li>
+      <li>Optional: paprika, chili powder, or herbs for seasoning</li>
+    </ul>
+  </div>
+
+  <div class="step-box" id="stepBox">Click below to begin!</div>
+
+  <div class="buttons">
+    <button id="prevBtn" onclick="prevStep()" disabled>⬅ Back</button>
+    <button id="nextBtn" onclick="nextStep()">Next ➡</button>
+  </div>
+
+  <script>
+    const steps = [
+      "Step 1: Peel potatoes and cut into even strips.",
+      "Step 2: Rinse potato strips in cold water to remove excess starch and pat dry.",
+      "Step 3: Heat oil in a deep fryer or heavy pan to 350°F (175°C).",
+      "Step 4: Fry potatoes in batches for 3-4 minutes until soft but not colored. Drain.",
+      "Step 5: Increase oil temperature to 400°F (205°C). Fry potatoes again until golden and crispy.",
+      "Step 6: Drain on paper towels, sprinkle with salt and seasoning of choice.",
+      "Step 7: Serve hot with ketchup or dips."
+    ];
+
+    let current = -1;
+    const stepBox = document.getElementById("stepBox");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function updateStep() {
+      stepBox.textContent = current === -1 ? "Click below to begin!" : steps[current];
+      prevBtn.disabled = current <= 0;
+      nextBtn.disabled = current >= steps.length - 1;
+    }
+
+    function nextStep() {
+      if (current < steps.length - 1) {
+        current++;
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      if (current > 0) {
+        current--;
+        updateStep();
+      }
+    }
+
+    updateStep();
+  </script>
+
+</body>
+</html>
